@@ -14,9 +14,113 @@ class Setting extends StatelessWidget {
           profileCard(),
           SizedBox(height: 24),
           navigation(),
+          moreNavigationTitle(),
+          moreNavigation()
         ],
       ),
     );
+  }
+
+  Container moreNavigation() {
+    return Container(
+          margin: EdgeInsets.only(left: 16, right: 16),
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xff000000).withOpacity(0.1),
+                blurRadius: 20
+              )
+            ]
+          ),
+          child: Column(
+            children: [
+              helpAndSupport(),
+              SizedBox(height: 24),
+              aboutApp(),
+            ],
+          ),
+        );
+  }
+
+  Row aboutApp() {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Color(0xffF2F2FB),
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: SvgPicture.asset('assets/icons/heart.svg')
+                    ),
+                    SizedBox(width: 16),
+                    Text(
+                      "About App",
+                      style: TextStyle(
+                        color: Color(0xff181D27),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                  ],
+                ),
+                SvgPicture.asset('assets/icons/rightArrow.svg')
+              ],
+            );
+  }
+
+  Row helpAndSupport() {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Color(0xffF2F2FB),
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: SvgPicture.asset('assets/icons/bell.svg')
+                    ),
+                    SizedBox(width: 16),
+                    Text(
+                      "Help & Support",
+                      style: TextStyle(
+                        color: Color(0xff181D27),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                  ],
+                ),
+                SvgPicture.asset('assets/icons/rightArrow.svg')
+              ],
+            );
+  }
+
+  Padding moreNavigationTitle() {
+    return Padding(
+          padding: const EdgeInsets.all(20),
+          child: Text(
+            "More",
+            style: TextStyle(
+              color: Color(0xff181D27),
+              fontSize: 14,
+              fontWeight: FontWeight.w500
+            ),
+          ),
+        );
   }
 
   Container navigation() {
@@ -49,7 +153,7 @@ class Setting extends StatelessWidget {
         );
   }
 
-Row logout() {
+  Row logout() {
     return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
